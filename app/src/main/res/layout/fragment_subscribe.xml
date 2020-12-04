@@ -5,11 +5,16 @@
 
     <data>
 
+        <variable
+            name="curatorData"
+            type="com.sopt.publyclone.model.CuratorProfileData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/curator_profile_background"
+        android:elevation="16dp"
         tools:context=".ui.SubscribeFragment">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -18,10 +23,12 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/img_profile_dummy"
+            android:scaleType="centerCrop"
+            android:src="@{curatorData.img_curator}"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_profile_dummy" />
 
         <LinearLayout
             android:id="@+id/linear_curator_profile"
@@ -39,10 +46,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
-                android:text="이현우"
+                android:text="@{curatorData.txt_curator_name}"
                 android:textColor="@color/black"
                 android:textFontWeight="700"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="이현우" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,10 +64,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanskr_regular"
                     android:includeFontPadding="false"
-                    android:text="구글"
+                    android:text="@{curatorData.txt_curator_workplace}"
                     android:textColor="@color/text_gray"
                     android:textFontWeight="400"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:text="구글" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,20 +86,24 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/notosanskr_regular"
                     android:includeFontPadding="false"
-                    android:text="Growth Manager"
+                    android:text="@{curatorData.txt_curator_job}"
                     android:textColor="@color/text_gray"
                     android:textFontWeight="400"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:text="Growth Manager" />
 
             </LinearLayout>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_curator_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/img_curator_profile"
             app:layout_constraintTop_toBottomOf="@+id/img_curator_profile"
             tools:listitem="@layout/item_curator_profile_tag" />
