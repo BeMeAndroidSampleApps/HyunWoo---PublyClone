@@ -5,11 +5,14 @@
 
     <data>
 
+        <variable
+            name="curatorProfileSubscribeData"
+            type="com.sopt.publyclone.model.CuratorProfileSubscribeData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/curator_profile_background">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -18,6 +21,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
+            android:src="@{curatorProfileSubscribeData.img_curator_profile_subscribe}"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,6 +53,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/notosanskr_regular"
             android:includeFontPadding="false"
+            android:text="@{curatorProfileSubscribeData.txt_curator_name_subscribe}"
             android:textColor="@color/black"
             android:textFontWeight="700"
             android:textSize="16sp"
@@ -72,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
+                android:text="@{curatorProfileSubscribeData.txt_curator_workplace_subscribe}"
                 android:textColor="@color/text_gray"
                 android:textSize="12sp"
                 tools:text="구글" />
@@ -93,6 +99,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:maxLines="2"
+                android:text="@{curatorProfileSubscribeData.txt_curator_job_subscribe}"
                 android:textColor="@color/text_gray"
                 android:textSize="12sp"
                 tools:text="Growth Manager" />
@@ -104,8 +111,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
             android:maxWidth="128dp"
             app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/linear_curator_profile_subscribe"
             app:layout_constraintTop_toBottomOf="@+id/linear_curator_profile_subscribe"
             tools:listitem="@layout/item_curator_profile_tag" />
