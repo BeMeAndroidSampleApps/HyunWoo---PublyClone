@@ -165,9 +165,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_curator_curator"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/btngroup_curator_category" />
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="16dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/btngroup_curator_category"
+            app:spanCount="2"
+            tools:listitem="@layout/item_curator_profile_subscribe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
