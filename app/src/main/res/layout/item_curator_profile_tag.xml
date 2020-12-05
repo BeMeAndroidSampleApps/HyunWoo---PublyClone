@@ -19,8 +19,11 @@
             android:id="@+id/txt_curator_curator_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:fontFamily="@font/notosanskr_regular"
             android:includeFontPadding="false"
+            android:maxWidth="100dp"
+            android:maxLines="1"
             android:padding="4dp"
             android:text="@{tag}"
             android:textColor="@color/text_color_black"
@@ -28,7 +31,7 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="플랫폼 비즈니스"/>
+            tools:text="플랫폼 비즈니스" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
