@@ -1,14 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.CuratorFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eeeeee"
+            tools:context=".ui.CuratorFragment">
+
+            <TextView
+                android:id="@+id/txt_curator_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="큐레이터"
+                android:textColor="@color/text_color_black"
+                android:textFontWeight="600"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_curator_subscribing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="구독중인 큐레이터"
+                android:textColor="@color/text_color_black"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/txt_curator_intro"
+                app:layout_constraintTop_toBottomOf="@+id/txt_curator_intro" />
+
+            <LinearLayout
+                android:id="@+id/linear_curator_show_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_curator_subscribing"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_curator_subscribing">
+
+                <TextView
+                    android:id="@+id/txt_curator_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="전체보기"
+                    android:textColor="@color/text_color_gray"
+                    android:textFontWeight="500"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/img_curator_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_icn_viewall" />
+
+            </LinearLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_curator_curator"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/txt_curator_subscribing" />
+
+            <TextView
+                android:id="@+id/txt_curator_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="카테고리"
+                android:textColor="@color/text_color_black"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/txt_curator_subscribing"
+                app:layout_constraintTop_toBottomOf="@+id/vp_curator_curator" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:id="@+id/btngroup_curator_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:justifyContent="flex_start"
+                app:layout_constraintStart_toStartOf="@+id/txt_curator_category"
+                app:layout_constraintTop_toBottomOf="@+id/txt_curator_category">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/btn_curator_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체"
+                    app:toggle_backgroundColor="@color/button_white"
+                    app:toggle_btnCornerRadius="10dp"
+                    app:toggle_circularCornerRadius="true"
+                    app:toggle_fontFamily="notosans_regular.ttf"
+                    app:toggle_paddingVertical="4dp"
+                    app:toggle_selectedBackgroundColor="@color/button_black"
+                    app:toggle_selectedTextColor="@color/text_white"
+                    app:toggle_textColor="@color/text_gray"
+                    app:toggle_textSize="14sp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/btn_curator_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신규"
+                    app:toggle_backgroundColor="@color/button_white"
+                    app:toggle_btnCornerRadius="10dp"
+                    app:toggle_circularCornerRadius="true"
+                    app:toggle_fontFamily="notosans_regular.ttf"
+                    app:toggle_paddingVertical="4dp"
+                    app:toggle_selectedBackgroundColor="@color/button_black"
+                    app:toggle_selectedTextColor="@color/text_white"
+                    app:toggle_textColor="@color/text_gray"
+                    app:toggle_textSize="14sp" />
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                    android:id="@+id/btn_curator_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추천"
+                    app:toggle_backgroundColor="@color/button_white"
+                    app:toggle_btnCornerRadius="10dp"
+                    app:toggle_circularCornerRadius="true"
+                    app:toggle_fontFamily="notosans_regular.ttf"
+                    app:toggle_paddingVertical="4dp"
+                    app:toggle_selectedBackgroundColor="@color/button_black"
+                    app:toggle_selectedTextColor="@color/text_white"
+                    app:toggle_textColor="@color/text_gray"
+                    app:toggle_textSize="14sp" />
+
+            </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            <ImageButton
+                android:id="@+id/btn_curator_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_filter"
+                app:layout_constraintBottom_toBottomOf="@id/btngroup_curator_category"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btngroup_curator_category" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_curator_curator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="16dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/btngroup_curator_category"
+                app:spanCount="2"
+                tools:listitem="@layout/item_curator_profile_subscribe" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
