@@ -32,6 +32,9 @@ class CuratorSubscribeAdapter(private val context: Context) :
             }
             curatorSubscribeTagAdapter.notifyDataSetChanged()
         }
+
+
+        //Exmaple Change
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratorSubscribeViewHolder {
